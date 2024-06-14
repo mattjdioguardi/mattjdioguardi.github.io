@@ -11,11 +11,11 @@
       }
 
       #statuscafe-username {
-          margin-bottom: .5em;
+          margin-bottom: .2em;
       }
 
       #statuscafe-content {
-          margin: 0 1em 0.5em 1em;
+          /* margin: 0 1em 0.5em 1em; */
           color: white;
       }
       a {
@@ -30,9 +30,17 @@
       <div id="statuscafe-username"></div>
       <div id="statuscafe-content"></div>
     </div>
-    <script
-      src="https://status.cafe/current-status.js?name=datapusher"
-      defer>
+    <script type="text/javascript">
+      fetch("https://status.cafe/users/datapusher/status.json")
+        .then( r => r.json() )
+        .then( r => {
+          if (!r.content.length) {
+            document.getElementById("statuscafe-content").innerHTML = "No status yet."
+            return
+          }
+          document.getElementById("statuscafe-username").innerHTML = '<a href="https://status.cafe/users/datapusher" target="_blank"><i>' + r.author + '</i></a> ' + r.face  + r.timeAgo
+          document.getElementById("statuscafe-content").innerHTML = r.content
+        })
     </script>
   </body>
 </html>
