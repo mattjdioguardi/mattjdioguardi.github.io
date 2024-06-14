@@ -2,12 +2,12 @@
 
 <body style="background:transparent">
   <div>
-      <a href="https://www.last.fm/user/mattjdio"  target="_blank"
-       style="text-decoration:none; font-size: 9px; color:white; font-family:'Courier New'"
-       >&#9199;&#65039;<span id="song">&#8987;</span>
-  </div>
+    <a href="https://www.last.fm/user/mattjdio" target="_blank"
+      style="text-decoration:none; font-size: 13px; color:white; font-family:'Courier New'">&#9199;&#65039;<span
+        id="song">&#8987;</span>
+    </div>
 
-  <script type="text/javascript">
+    <script type="text/javascript">
     let user = 'mattjdio';
     let url = 'https://lastfm-last-played.biancarosa.com.br/' + user + '/latest-song';
     let song = document.querySelector('#song');
@@ -18,4 +18,4 @@
             song.innerHTML = json['track']['name'] + ' - ' + json['track']['artist']['#text'];
         });
   </script>
-</body>
+  </body>
