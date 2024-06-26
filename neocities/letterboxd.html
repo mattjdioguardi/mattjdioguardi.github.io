@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* letterboxd */
+      #letterboxdFrame {
+          /* text-align: center; */
+          padding-left: 5px;
+          padding-right: 5px;
+
+          display: flex;
+      }
+
+      #titleWrapper {
+          text-align: center;
+          color: #ffffff;
+          padding-left: 5px;
+          /* display: flex; */
+      }
+
+      a#linkWrapper {
+          text-align: center;
+          color: #ffffff;
+          padding-left: 5px;
+          text-decoration: none;
+          target: "_blank";
+          /* display: flex; */
+      }
+    </style>
+  </head>
+
+  <body style="background:transparent">
+    <script type="text/javascript">
+      fetch('https://lb-embed-content.bokonon.dev?username=mattjdio')
+          .then(response => response.text())
+          .then(data => {
+              var diary = document.createElement('html');
+              diary.innerHTML = data;
+              var lastWatchedPoster = diary.querySelector("div.letterboxd-embed-tc-poster a");
+              var letterboxdLink = lastWatchedPoster.getAttribute("href");
+              var lastWatchedtitle = diary.querySelector("div.letterboxd-embed-tc-title");
+
+              var lastWatchedRating = diary.querySelector("div.letterboxd-embed-tc-rating");
+
+              const letterboxdWrapper = document.createElement("div");
+              letterboxdWrapper.setAttribute("id", "letterboxdFrame");
+              const titleWrapper = document.createElement("div");
+              titleWrapper.setAttribute("id", "titleWrapper");
+              const linkWrapper = document.createElement("a");
+              linkWrapper.setAttribute("id", "linkWrapper");
+              linkWrapper.setAttribute("href", letterboxdLink);
+              linkWrapper.setAttribute("target", "_blank");
+
+
+              this.appendChild(letterboxdWrapper);
+              letterboxdWrapper.appendChild(lastWatchedPoster);
+              letterboxdWrapper.appendChild(titleWrapper);
+              titleWrapper.appendChild(linkWrapper);
+              linkWrapper.appendChild(lastWatchedtitle);
+              linkWrapper.appendChild(lastWatchedRating);
+          });
+    </script>
+  </body>
+</html>
