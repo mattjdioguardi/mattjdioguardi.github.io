@@ -47,8 +47,9 @@
               var lastWatchedPoster = diary.querySelector("div.letterboxd-embed-tc-poster a");
               var letterboxdLink = lastWatchedPoster.getAttribute("href");
               var lastWatchedtitle = diary.querySelector("div.letterboxd-embed-tc-title");
-
               var lastWatchedRating = diary.querySelector("div.letterboxd-embed-tc-rating");
+              var lastWatchedReview = diary.querySelector("div.letterboxd-embed-tc-review");
+
 
               const letterboxdWrapper = document.createElement("div");
               letterboxdWrapper.setAttribute("id", "letterboxdFrame");
@@ -66,6 +67,8 @@
               titleWrapper.appendChild(linkWrapper);
               linkWrapper.appendChild(lastWatchedtitle);
               linkWrapper.appendChild(lastWatchedRating);
+              linkWrapper.appendChild(lastWatchedReview);
+
               document.getElementsByTagName('body')[0].appendChild(letterboxdWrapper);
           });
     </script>
