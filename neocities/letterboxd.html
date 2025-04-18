@@ -50,12 +50,12 @@
                 var lastWatchedRating = diary.querySelector("div.letterboxd-embed-tc-rating");
                 var lastWatchedReview = diary.querySelector("div.letterboxd-embed-tc-review");
                 lastWatchedReview.textContent  = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
-                if(lastWatchedReview.textContent.length > 30)
+                if(lastWatchedReview.textContent.length > 32)
                 {
                     lastWatchedReview.textContent = lastWatchedReview.textContent.slice(0, 30) + "..." 
                 }
                 
-                lastWatchedReview.style.maxWidth = '15ch';
+                lastWatchedReview.style.maxWidth = '16ch';
                 lastWatchedReview.style.overflowWrap = 'break-word';
 
                 const letterboxdWrapper = document.createElement("div");
