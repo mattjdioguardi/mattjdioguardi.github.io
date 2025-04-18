@@ -40,7 +40,7 @@
   <body style="background:transparent">
     <script type="text/javascript">
       fetch('https://lb-embed-content.bokonon.dev?username=mattjdio')
-            .then(response => response.text())
+      .then(response => response.text())
             .then(data => {
                 var diary = document.createElement('html');
                 diary.innerHTML = data;
@@ -49,9 +49,10 @@
                 var lastWatchedtitle = diary.querySelector("div.letterboxd-embed-tc-title");
                 var lastWatchedRating = diary.querySelector("div.letterboxd-embed-tc-rating");
                 var lastWatchedReview = diary.querySelector("div.letterboxd-embed-tc-review");
+                lastWatchedReview.textContent  = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
                 if(lastWatchedReview.textContent.length > 40)
                 {
-                    lastWatchedReview.textContent = lastWatchedReview.textContent.slice(0, 37) + "..." 
+                    lastWatchedReview.textContent = lastWatchedReview.textContent.slice(0, 40) + "..." 
                 }
                 
                 lastWatchedReview.style.maxWidth = '20ch';
@@ -67,13 +68,15 @@
                 linkWrapper.setAttribute("target", "_blank");
 
 
-                this.appendChild(letterboxdWrapper);
+                // this.appendChild(letterboxdWrapper);
                 letterboxdWrapper.appendChild(lastWatchedPoster);
                 letterboxdWrapper.appendChild(titleWrapper);
                 titleWrapper.appendChild(linkWrapper);
                 linkWrapper.appendChild(lastWatchedtitle);
                 linkWrapper.appendChild(lastWatchedRating);
                 linkWrapper.appendChild(lastWatchedReview);
+                document.getElementsByTagName('body')[0].appendChild(letterboxdWrapper);
+
           });
     </script>
   </body>
