@@ -44,11 +44,13 @@
             .then(data => {
                 var diary = document.createElement('html');
                 diary.innerHTML = data;
-                var lastWatchedPoster = diary.querySelector("div.letterboxd-embed-tc-poster a");
+                var lastDiary = diary.querySelector("div.letterboxd-embed-tc-diary-entry");
+                console.log(lastDiary);
+                var lastWatchedPoster = lastDiary.querySelector("div.letterboxd-embed-tc-poster a");
                 var letterboxdLink = lastWatchedPoster.getAttribute("href");
-                var lastWatchedtitle = diary.querySelector("div.letterboxd-embed-tc-title");
-                var lastWatchedRating = diary.querySelector("div.letterboxd-embed-tc-rating");
-                var lastWatchedReview = diary.querySelector("div.letterboxd-embed-tc-review");
+                var lastWatchedtitle = lastDiary.querySelector("div.letterboxd-embed-tc-title");
+                var lastWatchedRating = lastDiary.querySelector("div.letterboxd-embed-tc-rating");
+                var lastWatchedReview = lastDiary.querySelector("div.letterboxd-embed-tc-review") != null ? lastDiary.querySelector("div.letterboxd-embed-tc-review") : document.createElement('div');
                 if(lastWatchedReview.textContent.length > 32)
                 {
                     lastWatchedReview.textContent = lastWatchedReview.textContent.slice(0, 30) + "..." 
